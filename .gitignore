@@ -1,0 +1,11 @@
+alembic/__pycache__
+
+app/__pycache__
+app/base/__pycache__
+app/monitor/__pycache__
+app/store/__pycache__
+app/store/database/__pycache__
+app/store/monitor/__pycache__
+app/web/__pycache__
+
+venv

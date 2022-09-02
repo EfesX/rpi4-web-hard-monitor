@@ -1,0 +1,7 @@
+aiohttp
+psycopg2-binary
+sqlalchemy
+asyncio
+asyncpg
+greenlet
+alembic
