@@ -34,6 +34,10 @@ class View(AiohttpView):
     def data(self) -> dict:
         return self.request.get("data", {})
 
+    @property
+    def store(self) -> Store:
+        return self.request.app.store
+
 app = Application()
 
 

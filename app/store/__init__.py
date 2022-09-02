@@ -8,7 +8,10 @@ if typing.TYPE_CHECKING:
 
 class Store:
     def __init__(self, app: "Application") -> None:
-        pass
+        from app.store.monitor.accessor import MonitorAccessor
+
+        self.monitor = MonitorAccessor(app)
+        
 
 def setup_store(app: "Application"):
     app.database = Database(app)

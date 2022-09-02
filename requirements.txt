@@ -1,7 +1,9 @@
 aiohttp
+psutil
 psycopg2-binary
 sqlalchemy
 asyncio
 asyncpg
 greenlet
 alembic
+pyyaml
