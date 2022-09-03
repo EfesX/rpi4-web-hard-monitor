@@ -11,4 +11,6 @@ class CPUInfoStartAcquireRequest(Schema):
 
 class CPUInfoSchema(Schema):
     datetime = fields.DateTime(required=True)
-    temp = fields.Float(required=True)
+    temperature = fields.Float(required=True)
+    workload = fields.Float(required=True)
+    frequency = fields.Float(required=True)

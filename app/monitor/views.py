@@ -40,7 +40,7 @@ class StopAcquireView(View):
             }
         )
 
-class TempListView(View):
+class CPUInfoListView(View):
     @querystring_schema(CPUInfoListSchemaRequest)
     async def get(self):
         count = abs(int(self.request.query.get('count')))
