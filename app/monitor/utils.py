@@ -9,6 +9,7 @@ def get_cpu_info() -> CPUInfoModel:
     temp = psutil.sensors_temperatures()
     workload = psutil.cpu_percent()
     frequency = psutil.cpu_freq()
+    #ram_usage = psutil.virtual_memory().percent
 
     return CPUInfoModel(
         temperature = float(temp['cpu_thermal'][0].current),
