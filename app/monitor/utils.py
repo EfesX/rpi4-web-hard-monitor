@@ -3,12 +3,16 @@ import datetime
 
 import psutil
 
-from app.monitor.models import TemperatureModel
+from app.monitor.models import CPUInfoModel
 
-def get_cpu_temperature() -> TemperatureModel:
-    temps = psutil.sensors_temperatures()
+def get_cpu_info() -> CPUInfoModel:
+    temp = psutil.sensors_temperatures()
+    workload = psutil.cpu_percent()
+    frequency = psutil.cpu_freq()
 
-    return TemperatureModel(
-        temp = float(temps['cpu_thermal'][0].current),
-        datetime = datetime.datetime.today()
+    return CPUInfoModel(
+        temperature = float(temp['cpu_thermal'][0].current),
+        workload = float(workload),
+        frequency = float(frequency.current),
+        datetime = datetime.datetime.today(),
     )

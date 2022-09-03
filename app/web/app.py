@@ -9,10 +9,13 @@ from aiohttp.web import (
 from app.web.routes import setup_routes
 from app.web.config import setup_config
 from app.store import setup_store
+from app.web.middlewares import setup_middlewares
 
 from app.web.config import Config
 from app.store import Store
 from app.store.database.database import Database
+
+from aiohttp_apispec import setup_aiohttp_apispec
 
 
 class Application(AiohttpApplication):
@@ -42,7 +45,10 @@ app = Application()
 
 
 def setup_app(config_path: str) -> Application:
-    setup_config(app, "./config.yml")
-    setup_store(app)
+    setup_config(app, config_path)
     setup_routes(app)
+    setup_aiohttp_apispec(app, title="RPi4 Hard Monitor", url="/docs/json", swagger_path="/docs")
+    setup_middlewares(app)
+    setup_store(app)
+    
     return app

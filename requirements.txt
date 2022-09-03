@@ -7,3 +7,5 @@ asyncpg
 greenlet
 alembic
 pyyaml
+marshmallow
+aiohttp-apispec

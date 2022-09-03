@@ -18,8 +18,9 @@ class Acquirer:
         self.acquire_task: Optional[Task] = None
         self.interval = 15
 
-    async def start(self):
+    async def start(self, period: int):
         if self.is_running == False:
+            self.interval = period
             self.is_running = True
             self.acquire_task = asyncio.create_task(self.acquire())
 
@@ -33,7 +34,6 @@ class Acquirer:
         
     async def acquire(self):
         while self.is_running:
-            print("ACQUIRE")
-            await self.app.store.monitor.insert_cpu_temp(mutils.get_cpu_temperature())
+            await self.app.store.monitor.insert_cpu_info(mutils.get_cpu_info())
             await asyncio.sleep(self.interval)
 
